@@ -3,7 +3,7 @@ import { Section, ListItem, Button } from './ButtonList.styled';
 
 const ButtonList = ({ elemets, onLeaveFeedback }) => (
   <Section>
-    {elemets.map(element => (
+    {Object.keys(elemets).map(element => (
       <ListItem key={element}>
         <Button value={element} type="button" onClick={onLeaveFeedback}>
           {element}
@@ -14,6 +14,7 @@ const ButtonList = ({ elemets, onLeaveFeedback }) => (
 );
 
 ButtonList.propTypes = {
-  elemets: PropTypes.array,
+  elemets: PropTypes.object.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
 export default ButtonList;
